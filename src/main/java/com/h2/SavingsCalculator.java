@@ -4,17 +4,17 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 
 public class SavingsCalculator {
-    private float[] credits;
-    private float[] debits;
+    private float credits;
+    private float debits;
 
-    public SavingsCalculator(float[] credits, float [] debits) {
+    public SavingsCalculator(float credits, float debits) {
         this.credits = credits;
         this.debits = debits;
     }
 
     private float sumOfCredits() {
         float sum = 0.0f;
-        for(float[] credit: credits) {
+        for(float credit: credits) {
             sum += credits;
         }
         return sum;
@@ -22,7 +22,7 @@ public class SavingsCalculator {
 
     private float sumOfdebits() {
         float sum = 0.0f;
-        for(float[] debit: debits) {
+        for(float debit: debits) {
             sum += debits;
         }
         return sum;
@@ -39,11 +39,11 @@ public class SavingsCalculator {
     }
 
     public static void main(String[] args) {
-        final String[] creditsAsString = args[0].split(",");
+        final String[] creditsAsString = args[0].split(";");
         final String[] debitsAsString = args[1].split(",");
 
-        final float[] credits = new float[creditsAsString.length];
-        final float[] debits = new float[debitsAsString.length];
+        final float credits = new float[creditsAsString.length];
+        final float debits = new float[debitsAsString.length];
 
         for(int i = 0; i < creditsAsString.length; i++) {
             credits[i] = Float.parseFloat(creditsAsString[i]);
