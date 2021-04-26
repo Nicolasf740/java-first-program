@@ -7,14 +7,14 @@ public class SavingsCalculator {
     private float credits;
     private float debits;
 
-    public SavingsCalculator(float[] credits, float[] debits) {
+    public SavingsCalculator(float credits, float debits) {
         this.credits = credits;
         this.debits = debits;
     }
 
     private float sumOfCredits() {
         float sum = 0.0f;
-        for(float credits: credits) {
+        for( credits: credits) {
             sum += credits;
         }
         return sum;
@@ -22,14 +22,14 @@ public class SavingsCalculator {
 
     private float sumOfdebits() {
         float sum = 0.0f;
-        for(float debits: debits) {
+        for( debits: debits) {
             sum += debits;
         }
         return sum;
     }
-    private static int remainingDaysInMouth(LocalDate date) {
-        YearMonth yearMouth = YearMonth.of(date.getYear(), date.getMonth());
-        int totalDaysInMoth = yearMouth.lengthOfMonth();
+    private static int remainingDaysInMoth(LocalDate date) {
+        YearMonth yearMoth = YearMonth.of(date.getYear(), date.getMonth());
+        int totalDaysInMoth = yearMoth.lengthOfMonth();
         int remainingDays = totalDaysInMoth - date.getDayOfMonth();
         return remainingDays;
     }
@@ -49,12 +49,12 @@ public class SavingsCalculator {
             credits[i] = Float.parseFloat(creditsAsString[i]);
         }
 
-        for(int i = 0; i < debitsAsString.length; i++) {
+        for(int i = 0;i < debitsAsString.length; i++) {
             debits[i] = Float.parseFloat(debitsAsString[i]);
         }
 
         final SavingsCalculator calculator = new SavingsCalculator(credits, debits);
         float netSavings = calculator.calculate();
-        System.out.println("Net Savings = " + netSavings + ", remaining days in month = " + remainingDaysInMouth(LocalDate.now()));
+        System.out.println("Net Savings = " + netSavings + ", remaining days in month = " + remainingDaysInMoth(LocalDate.now()));
     }
 }
