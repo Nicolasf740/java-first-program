@@ -23,7 +23,7 @@ public class MortgageCalculator {
         return interestRate / 12;
     }
 
-    public void calculateMonthLyPayment() {
+    public void calculateMonthlyPayment() {
         long P = loanAmount;
         float r = getMonthLyInterestRate();
         int n = getNumberOfPayments();
@@ -43,7 +43,7 @@ public class MortgageCalculator {
         float annualRate = Float.parseFloat(args[2]);
 
         MortgageCalculator calculator = new MortgageCalculator(loanAmount, termInYears, annualRate);
-        calculator.calculateMonthLyPayment();
+        calculator.calculateMonthlyPayment();
         System.out.println(calculator.toString());
     }
 
