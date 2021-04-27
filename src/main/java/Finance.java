@@ -1,4 +1,5 @@
 import com.h2.BestLoanRates;
+import com.h2.MortgageCalculator;
 import com.h2.SavingsCalculator;
 
 import java.util.Arrays;
@@ -7,9 +8,9 @@ import java.util.Map;
 public class Finance {
     public static final String BEST_LOAN_RATES = "bestLoanRates";
     public static final String SAVINGS_CALCULATOR = "savingsCalculator";
-    public static final String  MORTGAGE_CALCULATOR = "mortgageCalculator";
+    public static final String MORTGAGE_CALCULATOR = "mortgageCalculator";
 
-    public static final Map<String, String> commandsTouUsage = Map.of(
+    public static final Map<String, String> commandsToUsage = Map.of(
             BEST_LOAN_RATES, "usage: bestLoanRates",
             SAVINGS_CALCULATOR, "usage: savingsCalculator <credits separated by ','> <debits separated by ','>",
             MORTGAGE_CALCULATOR, "usage: mortgageCalculator <loanAmount> <termInYears> <annualRate>"
@@ -34,25 +35,26 @@ public class Finance {
                 BestLoanRates.main(arguments);
                 return;
             case SAVINGS_CALCULATOR:
-                System.out.println("Finding your net saving ...");
+                System.out.println("Finding your net savings ...");
                 SavingsCalculator.main(arguments);
                 return;
             case MORTGAGE_CALCULATOR:
                 System.out.println("Finding your monthly payment ...");
+                MortgageCalculator.main(arguments);
                 return;
         }
     }
 
     public static void main(String[] args) {
         String command = args[0];
-        if(!commandsTouUsage.containsKey(command)) {
+        if(!commandsToUsage.containsKey(command)) {
             System.out.println(command + ": command not found");
             return;
         }
 
         boolean isValidCommand = validateCommandArguments(args);
-        if(!isValidCommand){
-            System.out.println(commandsTouUsage.get(args[0]));
+        if(!isValidCommand) {
+            System.out.println(commandsToUsage.get(args[0]));
             return;
         }
 
