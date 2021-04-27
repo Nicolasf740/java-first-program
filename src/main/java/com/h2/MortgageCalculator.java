@@ -34,7 +34,7 @@ public class MortgageCalculator {
 
     public String toString() {
         DecimalFormat df = new DecimalFormat("####0.00");
-        return "monthLyPayment: " + df.format(monthLyPayment);
+        return "monthlyPayment: " + df.format(monthLyPayment);
     }
 
     public static void main(String[] args) {
