@@ -6,7 +6,7 @@ public class MortgageCalculator {
     private long loanAmount;
     private int termInYears;
     private float annualRate;
-    private double monthLyPayment;
+    private double monthlyPayment;
 
     public MortgageCalculator(long loanAmount, int termInYears, float annualRate) {
         this.loanAmount = loanAmount;
@@ -29,7 +29,7 @@ public class MortgageCalculator {
         int n = getNumberOfPayments();
 
         double M = P * (((r * Math.pow(1 + r, n))) / ((Math.pow((1 + r),n)) - 1));
-        this.monthLyPayment = M;
+        this.monthlyPayment = M;
     }
 
     public String toString() {
